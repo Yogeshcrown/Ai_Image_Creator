@@ -1,19 +1,19 @@
-const express = require("express");
-const cors = require("cors");
-const axios = require("axios");
+import express from "express";
+import cors from "cors";
+import axios from "axios";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Hugging Face API Key
 const HF_API_KEY = process.env.HUGGINGFACE_API_KEY;
 const HF_MODEL_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-3.5-large";
 
-
 app.use(express.json());
-app.use(cors({ origin: "*" })); // Allow all origins
+app.use(cors({ origin: "*" })); 
 
-// Route to generate AI images
 app.post("/generate-image", async (req, res) => {
     const { prompt } = req.body;
 
@@ -34,7 +34,6 @@ app.post("/generate-image", async (req, res) => {
             }
         );
 
-        // Convert image buffer to Base64
         const imageBase64 = Buffer.from(response.data, "binary").toString("base64");
 
         return res.json({ image: `data:image/png;base64,${imageBase64}` });
@@ -44,7 +43,6 @@ app.post("/generate-image", async (req, res) => {
     }
 });
 
-// Start server
 app.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
