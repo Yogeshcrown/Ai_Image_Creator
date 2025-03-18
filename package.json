@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "AI Image Generator using Hugging Face API",
   "main": "backend_ai_image.js",
+  "type": "module",
   "dependencies": {
     "express": "^4.18.2",
     "axios": "^1.3.4",
