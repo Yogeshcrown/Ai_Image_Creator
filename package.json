@@ -1,13 +1,24 @@
 {
   "name": "Ai_Content_Creator",
   "version": "1.0.0",
+  "description": "AI Image Generator using Hugging Face API",
   "main": "backend_ai_image.js",
+  "type": "module",
   "dependencies": {
     "express": "^4.18.2",
     "axios": "^1.3.4",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
   },
   "scripts": {
-    "start": "node backend_ai_image.js"
-  }
+    "start": "node backend_ai_image.js",
+    "dev": "nodemon backend_ai_image.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
 }
